@@ -1,0 +1,85 @@
+<style>
+.dropbox{
+	height: 200px;
+	width: 200px;
+	border:1px solid grey;
+	display: inline-block;
+	position: relative;
+}
+.absolute {
+	position: absolute;
+}
+#wrapper {
+	position: relative;
+}
+#draggable {
+    height:150px;
+    width:150px;
+    background-color:#ccc;
+}
+</style>
+<div id="wrapper">
+		<div id="div1" class="dropbox" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+		<div id="div2" class="dropbox" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+		<br>
+            <div id="draggable" draggable="true" ondragstart="drag(event)" >
+        </div>
+</div>
+<script>
+/* the first part is for the usual mouse events */
+		function allowDrop(ev) {
+			ev.preventDefault();
+		}
+
+		function drag(ev) {
+			ev.dataTransfer.setData("text", ev.target.id);
+		}
+
+		function drop(ev) {
+			ev.preventDefault();
+			var data = ev.dataTransfer.getData("text");
+			ev.target.appendChild(document.getElementById(data));
+		}
+
+		/* here is where the touch stuff starts*/
+
+		var draggable = document.getElementById('draggable');
+		var wrapper = document.getElementById('wrapper');
+		/* the drag function */
+		draggable.addEventListener('touchmove', function(event) {
+			// make the element draggable by giving it an absolute position and modifying the x and y coordinates
+			draggable.className = draggable.className + " absolute";
+			// put the draggable into the wrapper, because otherwise the position will be relative of the parent element
+			wrapper.appendChild(draggable);
+			var touch = event.targetTouches[0];
+			// Place element where the finger is
+			draggable.style.left = touch.pageX-25 + 'px';
+			draggable.style.top = touch.pageY-25 + 'px';
+			event.preventDefault();
+		}, false);
+
+		/* the drop function */
+		draggable.addEventListener('touchend', function(event) {
+			// hide the draggable element, or the elementFromPoint won't find what's underneath
+			draggable.style.left = '-1000px';
+			draggable.style.top = '-1000px';
+			// find the element on the last draggable position
+			var endTarget = document.elementFromPoint(
+				event.changedTouches[0].pageX,
+				event.changedTouches[0].pageY
+				);
+			// position it relative again and remove the inline styles that aren't needed anymore
+			removeClass(draggable, 'absolute');
+			draggable.removeAttribute('style');
+			// put the draggable into it's new home
+			if (endTarget !== 'undefined') {
+				endTarget.appendChild(draggable);
+			}
+		});
+
+		// just a little helper function
+		function removeClass(e,c) {
+			e.className = e.className.replace(
+				new RegExp('(?:^|\\s)'+c+'(?!\\S)') ,'');
+		}
+</script>
