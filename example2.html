@@ -1,0 +1,46 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>test drag touch</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+
+<body>
+
+    <!-- demo and source http://touchpunch.furf.com -->
+
+    <div id="bg-container" style="width: 400px; height: 600px;background-color: gray;margin: 10px;">
+        
+        <div id="widget" style="position: relative; left: 69px; top: 290px; width: 80px;height: 80px;background-color: red; border:2px solid;border-radius: 10px; ">
+            <p>drag</p>
+        </div>
+
+    </div>
+
+
+    <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.8.21/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
+    <script>
+        $('#widget').draggable({
+            scroll: false,
+            containment: "#bg-container",
+            
+            start: function( event, ui ) {
+                console.log("start top is :" + ui.position.top)
+                console.log("start left is :" + ui.position.left)
+            },
+            drag: function(event, ui) {
+                console.log('draging.....');    
+            },
+            stop: function( event, ui ) {
+                console.log("stop top is :" + ui.position.top)
+                console.log("stop left is :" + ui.position.left)
+
+                alert('left:'+ui.position.left + ' top:'+ui.position.top)
+            }    
+        });
+    </script>
+</body>
+</html>
