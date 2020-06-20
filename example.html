@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="http://code.jquery.com/jquery.min.js"></script>
+  <script src="http://code.jquery.com/ui/1.8.17/jquery-ui.min.js"></script>
+  <script src="jquery.ui.touch-punch.min.js"></script>
+
+  <style>
+body {font-family: "Lato", sans-serif;}
+
+.sidebar {
+  height: 100%;
+  width: 160px;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  padding-top: 16px;
+}
+
+.sidebar a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #818181;
+  display: block;
+}
+
+.sidebar a:hover {
+  color: #f1f1f1;
+}
+
+.main {
+  margin-left: 160px; /* Same as the width of the sidenav */
+  padding: 0px 10px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidebar {padding-top: 15px;}
+  .sidebar a {font-size: 18px;}
+}
+
+</style>
+
+</head>
+
+<body >
+
+<div id='bud' class="sidebar">
+  <a href="#home"><i class="fa fa-fw fa-home"></i> Home</a>
+  <a href="#services"><i class="fa fa-fw fa-wrench"></i> Services</a>
+  <a href="#clients"><i class="fa fa-fw fa-user"></i> Clients</a>
+  <a href="#contact"><i class="fa fa-fw fa-envelope"></i> Contact</a>
+</div>
+
+<div class="main">
+  <h2>Sidebar with Icons</h2>
+  <p>This side navigation is of full height (100%) and always shown.</p>
+  <p>Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
+  <p>Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
+
+</div>
+     
+</body>
+
+
+<script>
+
+
+  var style = document.createElement('style');
+  style.innerHTML = `
+        img.fixedLike {
+          position: fixed;
+          bottom: 0;
+          left: 0;
+        background-color: yellow;
+        }
+        img.fixedComment {
+          position: fixed;
+          top: 0;
+          left: 0;
+        margin-left: 68;
+        background-color: yellow;
+        }
+        img.fixedShare {
+          position: fixed;
+          bottom: 0;
+          right: 0;
+        margin-left:136;
+        background-color: yellow;
+        }
+        `
+
+  document.head.appendChild(style);
+
+  function allowDropMoj(ev) {
+    ev.preventDefault();
+  }
+
+  function dragMoj(ev) {
+    ev.dataTransfer.setData("text", ev.target.id);
+  }
+
+  function dropMoj(ev) {
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("text");
+    console.log('dropped ', ev.target, ' ', document.getElementById(data))
+//ev.target.appendChild(document.getElementById(data));
+  }
+
+
+
+  const imgLike = document.createElement("img");
+    const imgComment = document.createElement("img");
+    const imgShare = document.createElement("img");
+    imgLike.src = "./likeIcon.png";
+    imgLike['draggable']= "true";
+    imgLike.addEventListener('dragstart', dragMoj)
+  imgLike.addEventListener('click', ()=>{alert('hello')})
+    imgLike.id= "dragLike";
+    //imgLike.className= "fixedLike";
+    imgLike['width']= "64";
+    imgLike['height']= "64";
+
+    imgComment.src = "./commentIcon.png";
+    imgComment['draggable']= "true";
+    imgComment.addEventListener('dragstart', dragMoj)
+    imgComment.id= "dragComment";
+    //imgComment.className= "fixedComment";
+    imgComment['width']= "64";
+    imgComment['height']= "64";
+
+    imgShare.src = "./shareIcon.png";
+    imgShare['draggable']= "true";
+    imgShare.addEventListener('dragstart', dragMoj)
+    imgShare.id= "dragShare";
+    //imgShare.className= "fixedShare";
+    imgShare['width']= "64";
+    imgShare['height']= "64";
+
+    document.body.appendChild(imgLike)
+    document.body.appendChild(imgComment)
+    document.body.appendChild(imgShare)
+
+
+    console.log(imgLike)
+    console.log(document.getElementById('dragLike'))
+    console.log(document.getElementById('dragComment'))
+
+    //document.getElementById("dragLike").addEventListener("drag", displayDate);
+
+
+    /*
+        const attrs = term =>{
+            let attr = {
+                draggable: "true",
+                onDragStart: "drag(event)",
+                id: "drag"+term,
+                className: "fixed"+term,
+                width: "64",
+                height: "64",
+            }
+            return attr
+        }
+        for(let img of [{n:imgLike, w:'Like'}, imgComment, imgShare])
+        for(let attr in attrs('Like')) {
+            console.log(attr)
+            imgLike[attr] = attrs[attr]
+            console.log(imgLike)
+        }
+        for(let attr in attrs('Comment'))
+            imgComment[attr]=attrs[attr]
+        for(let attr in attrs('Share'))
+            imgShare[attr]=attrs[attr]
+    */
+
+
+    const myfilter=function(node){
+	if (node.parentNode.tagName == 'SCRIPT')
+		return NodeFilter.FILTER_SKIP;
+
+	if (node.data.length>20) //filter out terms less than 20 DIV and IMG elements
+		return NodeFilter.FILTER_ACCEPT;
+
+	return NodeFilter.FILTER_SKIP;
+}
+
+var n
+var a=[] 
+
+var walk = document.createTreeWalker(
+  document.body,
+  NodeFilter.SHOW_TEXT,
+  myfilter,
+  false
+);
+while(n=walk.nextNode()){
+n.parentNode.addEventListener("drop", dropMoj)
+n.parentNode.addEventListener("dragover", allowDropMoj)
+
+a.push(n);
+}
+console.log(a,'\n-----------------\n')
+console.log(a.map(item => item.data))
+ 
+//Go back to the first child node of the collection and alert it
+walk.currentNode=document.body //reset TreeWalker pointer to point to root node
+
+</script>
+
+
+<script src="http://code.jquery.com/jquery.min.js"></script>
+<script src="http://code.jquery.com/ui/1.8.17/jquery-ui.min.js"></script>
+<script src="jquery.ui.touch-punch.min.js"></script>
+
+
+</html> 
+
+
