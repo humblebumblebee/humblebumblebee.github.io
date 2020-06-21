@@ -1,8 +1,8 @@
 callbackOnAction = (data) => {
   window.ReactNativeWebView.postMessage(
     `{
-      Action: ` + data.Action + `,
-      Target: ` + data.Target + `},
+      Action: ` + data.Action.id + `,
+      Target: ` + data.Target.innerHTML + `},
      }`
   );
   console.log(data)
