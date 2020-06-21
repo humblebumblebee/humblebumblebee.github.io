@@ -1,5 +1,4 @@
 callbackOnAction = (data) => {
-  alert("Say data is check your console")
   window.postMessage(
     `{
       Action: ` + data.Action + `,
