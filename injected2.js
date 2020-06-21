@@ -230,9 +230,11 @@ if(modePreTagAllDroppableElements){
             
             console.log('end targets = ', endTargets)
 			// position it relative again and remove the inline styles that aren't needed anymore
-			removeClass(draggable, ' absolute ');
+	    removeClass(draggable, ' absolute ');
             //Moj disabled the line below:
-            //draggable.removeAttribute('style');
+            draggable.style.removeProperty("left");
+            draggable.style.removeProperty("top");
+	    //draggable.removeAttribute('style');
             // put the draggable into it's new home
             let endTarget = validDropTarget(endTargets)
             console.log('and end target = ', endTarget)
