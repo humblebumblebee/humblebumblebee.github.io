@@ -18,20 +18,24 @@ function allowDropMoj(ev) {
   var style = document.createElement('style');
   style.innerHTML = `
         img.fixedLike {
+	all: initial;
         background-color: yellow;
 	    z-index: 2147483646;
         }
         img.fixedComment {
+	all: initial;
         margin-left: 68;
         background-color: yellow;
 	    z-index: 2147483646;
         }
         img.fixedShare {
+	all: initial;
         margin-left:136;
         background-color: yellow;
 	    z-index: 2147483646;
         }
         div.imgHolder {
+        	all: initial;
             position: fixed;
             bottom: 0;
             width: 100%;
@@ -39,7 +43,8 @@ function allowDropMoj(ev) {
 	    z-index: 2147483647;
         }
 	#touchHolder{
-	    position: absolute;
+	all: initial;	    
+        position: absolute;
 	    width:10px;
 	    height:10px;
 	    background-color: #f00;
@@ -47,10 +52,11 @@ function allowDropMoj(ev) {
 	}
 
 	.validDropTargetMoj{
-	}
+        }
 
 	.dropbox{
-		height: 200px;
+	all: initial;
+        height: 200px;
 		width: 200px;
 		border:1px solid grey;
 		display: inline-block;
@@ -60,7 +66,8 @@ function allowDropMoj(ev) {
 		position: absolute;
 	}
 	#draggable {
-	    height:150px;
+	    all: initial;
+            height:150px;
 	    width:150px;
 	    background-color:#ccc;
 	}
