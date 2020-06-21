@@ -40,38 +40,6 @@ body {font-family: "Lato", sans-serif;}
   .sidebar a {font-size: 18px;}
 }
 
-#touchHolder{
-    position: absolute;
-    width:10px;
-    height:10px;
-    background-color: #f00;
-}
-
-.validDropTargetMoj{
-}
-
-.dropbox{
-	height: 200px;
-	width: 200px;
-	border:1px solid grey;
-	display: inline-block;
-	position: relative;
-}
-.absolute {
-	position: absolute;
-}
-#draggable {
-    height:150px;
-    width:150px;
-    background-color:#ccc;
-}
-
-
-
-
-
-
-
 </style>
 
 </head>
@@ -159,6 +127,32 @@ function allowDropMoj(ev) {
             width: 100%;
             background-color: grey;
         }
+	#touchHolder{
+	    position: absolute;
+	    width:10px;
+	    height:10px;
+	    background-color: #f00;
+	}
+
+	.validDropTargetMoj{
+	}
+
+	.dropbox{
+		height: 200px;
+		width: 200px;
+		border:1px solid grey;
+		display: inline-block;
+		position: relative;
+	}
+	.absolute {
+		position: absolute;
+	}
+	#draggable {
+	    height:150px;
+	    width:150px;
+	    background-color:#ccc;
+	}
+
         `
 
   document.head.appendChild(style);
