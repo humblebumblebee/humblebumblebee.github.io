@@ -248,6 +248,7 @@ if(modePreTagAllDroppableElements){
 			if (endTarget != null) {
                 console.log('dropped ', endTarget, ' ', draggable)
                 console.log('vs. dropped ', event.target, ' ', draggable)
+		callBackOnAction({Action: draggable, Target: endTarget})
                 //wrapper.removeChild(draggable);
                 //endTarget.appendChild(draggable);
 			}
