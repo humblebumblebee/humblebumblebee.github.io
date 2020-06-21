@@ -105,30 +105,8 @@ body {font-family: "Lato", sans-serif;}
 
 </div>
 
-
-
-
-
-
-
-
-
-<div id="div1" class="dropbox" ondrop="dropMoj(event)" ondragover="allowDropMoj(event)"></div>
-<div id="div2" class="dropbox" ondrop="dropMoj(event)" ondragover="allowDropMoj(event)"></div>
-<br>
-    <div id="draggable" draggable="true" ondragstart="dragMoj(event)" ></div>
-
-
     <div id="touchHolder">
     </div>
-
-
-
-
-
-
-
-
 
 </body>
 
@@ -175,14 +153,17 @@ function allowDropMoj(ev) {
         margin-left:136;
         background-color: yellow;
         }
+        div.imgHolder {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: grey;
+        }
         `
 
   document.head.appendChild(style);
 
-
-
-
-  const imgLike = document.createElement("img");
+    const imgLike = document.createElement("img");
     const imgComment = document.createElement("img");
     const imgShare = document.createElement("img");
     imgLike.src = "./likeIcon.png";
@@ -209,9 +190,17 @@ function allowDropMoj(ev) {
     imgShare['width']= "64";
     imgShare['height']= "64";
 
-    document.body.appendChild(imgLike)
-    document.body.appendChild(imgComment)
-    document.body.appendChild(imgShare)
+    const imgHolder = document.createElement("div");
+    imgHolder.className= "imgHolder";
+
+    document.body.appendChild(imgHolder)
+    imgHolder.appendChild(imgLike)
+    imgHolder.appendChild(imgComment)
+    imgHolder.appendChild(imgShare)
+    
+    //document.body.appendChild(imgLike)
+    //document.body.appendChild(imgComment)
+    //document.body.appendChild(imgShare)
 
 
     console.log(imgLike)
