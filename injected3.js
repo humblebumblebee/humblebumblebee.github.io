@@ -230,7 +230,7 @@ if(modePreTagAllDroppableElements){
             
             console.log('end targets = ', endTargets)
 			// position it relative again and remove the inline styles that aren't needed anymore
-	    removeClass(draggable, ' absolute ');
+	    removeClass(draggable, 'absolute ');//Don't put a space before absolute, otherwise it won't work
             //Moj disabled the line below:
             draggable.style.removeProperty("left");
             draggable.style.removeProperty("top");
