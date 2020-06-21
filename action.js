@@ -1,5 +1,5 @@
 callbackOnAction = (data) => {
-  window.postMessage(
+  window.ReactNativeWebView.postMessage(
     `{
       Action: ` + data.Action + `,
       Target: ` + data.Target + `},
