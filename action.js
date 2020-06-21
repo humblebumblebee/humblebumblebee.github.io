@@ -1,4 +1,4 @@
-callBackOnAction = (data) => {
+callbackOnAction = (data) => {
   alert("Say data is check your console")
   window.postMessage(
     `{
