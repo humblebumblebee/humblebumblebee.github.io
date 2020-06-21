@@ -73,9 +73,6 @@ body {font-family: "Lato", sans-serif;}
 
 </div>
 
-    <div id="touchHolder">
-    </div>
-
 </body>
 
 
@@ -157,6 +154,10 @@ function allowDropMoj(ev) {
 
   document.head.appendChild(style);
 
+    const touchHolder = document.createElement("div");
+    touchHolder.id= "touchHolder"
+    document.body.appendChild(touchHolder)
+	
     const imgLike = document.createElement("img");
     const imgComment = document.createElement("img");
     const imgShare = document.createElement("img");
