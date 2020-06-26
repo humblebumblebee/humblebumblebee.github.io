@@ -99,13 +99,13 @@ function allowDropMoj(ev) {
     imgLike['width']= "64";
     imgLike['height']= "64";
 
-    imgLike.src = "https://humblebumblebee.github.io/dislikeIcon.png";
-    imgLike['draggable']= "true";
-    imgLike.addEventListener('dragstart', dragMoj)
-    imgLike.id= "dragDislike";
-    imgLike.className= "fixedDislike";
-    imgLike['width']= "64";
-    imgLike['height']= "64";
+    imgDislike.src = "https://humblebumblebee.github.io/dislikeIcon.png";
+    imgDislike['draggable']= "true";
+    imgDislike.addEventListener('dragstart', dragMoj)
+    imgDislike.id= "dragDislike";
+    imgDislike.className= "fixedDislike";
+    imgDislike['width']= "64";
+    imgDislike['height']= "64";
 
     imgComment.src = "https://humblebumblebee.github.io/commentIcon.png";
     imgComment['draggable']= "true";
