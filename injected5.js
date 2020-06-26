@@ -22,15 +22,21 @@ function allowDropMoj(ev) {
         background-color: yellow;
 	    z-index: 2147483646;
         }
-        img.fixedComment {
+        img.fixedDislike {
 	all: initial;
         margin-left: 68;
         background-color: yellow;
 	    z-index: 2147483646;
         }
+        img.fixedComment {
+	all: initial;
+        margin-left: 136;
+        background-color: yellow;
+	    z-index: 2147483646;
+        }
         img.fixedShare {
 	all: initial;
-        margin-left:136;
+        margin-left:204;
         background-color: yellow;
 	    z-index: 2147483646;
         }
@@ -81,13 +87,23 @@ function allowDropMoj(ev) {
     document.body.appendChild(touchHolder)
 	
     const imgLike = document.createElement("img");
+    const imgDislike = document.createElement("img");
     const imgComment = document.createElement("img");
     const imgShare = document.createElement("img");
+
     imgLike.src = "https://humblebumblebee.github.io/likeIcon.png";
     imgLike['draggable']= "true";
     imgLike.addEventListener('dragstart', dragMoj)
     imgLike.id= "dragLike";
     imgLike.className= "fixedLike";
+    imgLike['width']= "64";
+    imgLike['height']= "64";
+
+    imgLike.src = "https://humblebumblebee.github.io/dislikeIcon.png";
+    imgLike['draggable']= "true";
+    imgLike.addEventListener('dragstart', dragMoj)
+    imgLike.id= "dragDislike";
+    imgLike.className= "fixedDislike";
     imgLike['width']= "64";
     imgLike['height']= "64";
 
@@ -112,6 +128,7 @@ function allowDropMoj(ev) {
 
     document.body.appendChild(imgHolder)
     imgHolder.appendChild(imgLike)
+    imgHolder.appendChild(imgDislike)
     imgHolder.appendChild(imgComment)
     imgHolder.appendChild(imgShare)
     
@@ -278,11 +295,13 @@ if(modePreTagAllDroppableElements){
 
         /* the drag function */
 		imgLike.addEventListener('touchmove', ev=>onTouchMoveParam(ev, imgLike), false);
+		imgDislike.addEventListener('touchmove', ev=>onTouchMoveParam(ev, imgDislike), false);
         imgComment.addEventListener('touchmove', ev=>onTouchMoveParam(ev, imgComment), false);
 		imgShare.addEventListener('touchmove', ev=>onTouchMoveParam(ev, imgShare), false);
 
 		/* the drop function */
 		imgLike.addEventListener('touchend', ev=>onTouchEndParam(ev, imgLike));
+		imgDislike.addEventListener('touchend', ev=>onTouchEndParam(ev, imgDislike));
 		imgComment.addEventListener('touchend', ev=>onTouchEndParam(ev, imgComment));
 		imgShare.addEventListener('touchend', ev=>onTouchEndParam(ev, imgShare));
 
