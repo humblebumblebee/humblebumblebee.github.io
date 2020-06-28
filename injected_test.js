@@ -57,6 +57,15 @@
 	    z-index: 2147483646;
 	}
 
+	#anchorTop{
+	all: initial;	    
+        position: absolute;top: -5000px;left: 50px;
+	    width:30px;
+	    height:30px;
+	    background-color: #ff0;
+	    z-index: 2147483646;
+	}
+
 	#anchor{
 	all: initial;	    
         position: absolute;top: 5000px;left: 50px;
@@ -65,7 +74,6 @@
 	    background-color: #ff0;
 	    z-index: 2147483646;
 	}
-
 
 	.validDropTargetMoj{
         }
@@ -99,6 +107,10 @@
     const anchor = document.createElement("div");
     anchor.id= "anchor"
     document.body.appendChild(anchor)
+
+    const anchorTop = document.createElement("div");
+    anchorTop.id= "anchorTop"
+    document.body.appendChild(anchorTop)
 
 
     const imgLike = document.createElement("img");
