@@ -48,7 +48,7 @@
             background-color: grey;
 	    z-index: 2147483647;
         }
-	#touchHolder{
+	div#touchHolder{
 	all: initial;	    
         position: absolute;
 	    width:10px;
