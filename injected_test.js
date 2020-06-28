@@ -120,7 +120,7 @@
         //window.scrollTo(window.pageXOffset , window.pageYOffset+vh)
 	    console.log('top = ',propTop,' ,vh=', vh,' offset=', window.pageYOffset)
         if(propTop<vh){
-            propTop = Math.max(vh, propTop + window.pageYOffset)
+            propTop = Math.min(vh, propTop + window.pageYOffset)
         }
 	anchor.style['top'] = ""+propTop+"px"
     })
