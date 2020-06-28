@@ -108,6 +108,14 @@
     anchor.id= "anchor"
     document.body.appendChild(anchor)
 
+    document.addEventListener('scroll',ev=>{
+        //window.scrollTo(window.pageXOffset , window.pageYOffset+vh)
+        if(anchor['top']<vh){
+            anchor['top'] = Math.max(vh, anchor['top'] + window.pageYOffset)
+        }
+    })
+
+
     const anchorTop = document.createElement("div");
     anchorTop.id= "anchorTop"
     document.body.appendChild(anchorTop)
