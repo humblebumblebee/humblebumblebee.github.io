@@ -1,3 +1,10 @@
+    const vh = 1/2 * Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
+    //document.body.style.paddingTop = ""+vh+"px"//vh
+    //document.body.style.paddingBottom = ""+vh+"px"//vh
+    //document.body.style.marginTop = ""+vh+"px"//vh
+    document.body.style.marginBottom = ""+vh+"px"//vh
+
+
     function allowDropMoj(ev) {
     ev.preventDefault();
   }
