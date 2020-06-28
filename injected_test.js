@@ -118,8 +118,13 @@
 
     document.addEventListener('scroll',ev=>{
         //window.scrollTo(window.pageXOffset , window.pageYOffset+vh)
-	    console.log('top = ',propTop,' ,vh=', vh,' offset=', window.pageYOffset)
-            propTop = Math.min(vh, propTop + window.pageYOffset)
+	console.log('top = ',propTop,' ,vh=', vh,' offset=', window.pageYOffset)
+        if(window.pageYOffset<vh){
+		propTop = Math.min(vh, window.pageYOffset)
+	}else{
+		propTop = window.pageYOffset
+	}
+	    
 	anchor.style['top'] = ""+propTop+"px"
     })
 
