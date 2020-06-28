@@ -117,7 +117,7 @@
 
     document.addEventListener('scroll',ev=>{
         //window.scrollTo(window.pageXOffset , window.pageYOffset+vh)
-	console.log(anchor['top'], vh, window.pageYOffset)
+	console.log(anchor.style.top, vh, window.pageYOffset)
         if(anchor['top']<vh){
             anchor['top'] = Math.max(vh, anchor['top'] + window.pageYOffset)
         }
