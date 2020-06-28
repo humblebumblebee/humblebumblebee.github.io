@@ -59,7 +59,7 @@
 
 	#anchor{
 	all: initial;	    
-        position: absolute;top: +50;left: +50;
+        position: absolute;top: +5000;left: +50;
 	    width:30px;
 	    height:30px;
 	    background-color: #ff0;
