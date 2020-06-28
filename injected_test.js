@@ -3,6 +3,7 @@
     //document.body.style.paddingBottom = ""+vh+"px"//vh
     //document.body.style.marginTop = ""+vh+"px"//vh
     document.body.style.marginBottom = ""+vh+"px"//vh
+    let propTop = 0
 
 
     function allowDropMoj(ev) {
@@ -117,11 +118,11 @@
 
     document.addEventListener('scroll',ev=>{
         //window.scrollTo(window.pageXOffset , window.pageYOffset+vh)
-	anchor.style['top'] = "200px"
-	    console.log('top = ',anchor.style['top'],' ,vh=', vh,' offset=', window.pageYOffset)
-        if(anchor['top']<vh){
-            anchor['top'] = Math.max(vh, anchor['top'] + window.pageYOffset)
+	    console.log('top = ',p,' ,vh=', vh,' offset=', window.pageYOffset)
+        if(propTop<vh){
+            propTop = Math.max(vh, propTop + window.pageYOffset)
         }
+	anchor.style['top'] = ""+propTop+"px"
     })
 
 
