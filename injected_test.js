@@ -97,7 +97,7 @@
     document.body.appendChild(touchHolder)
 	
     const anchor = document.createElement("div");
-    touchHolder.id= "anchor"
+    anchor.id= "anchor"
     document.body.appendChild(anchor)
 
 
