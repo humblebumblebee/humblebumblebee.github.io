@@ -122,7 +122,7 @@
         if(window.pageYOffset<vh){
 		propTop = Math.min(vh, window.pageYOffset)
 	}else{
-		propTop = window.pageYOffset
+		propTop = vh
 	}
 	    
 	anchor.style['top'] = ""+propTop+"px"
