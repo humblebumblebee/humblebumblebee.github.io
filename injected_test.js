@@ -365,21 +365,26 @@ if(modePreTagAllDroppableElements){
     if(msg.Action === "UIVisibility"){
         if(msg.data){
             alert('True')
-            removeClass(imgHolder, "hiddenElems")
-            removeClass(anchor, "hiddenElems")
+	    imgHolder.style.visibility = "visible"
+            anchor.style.visibility = "visible"
+            //removeClass(imgHolder, "hiddenElems")
+            //removeClass(anchor, "hiddenElems")
             //visible
         } else {
             alert('False')
+	    imgHolder.style.visibility = "hidden"
+            anchor.style.visibility = "hidden"
             imgHolder.className += " hiddenElems "
             anchor.className += " hiddenElems "
             //hidden
         }
     }
-
+/*
     msg = {Action:"UIVisibility", data: true}
     if(msg.Action === "UIVisibility"){
         if(msg.data){
             alert('True')
+
             removeClass(imgHolder, "hiddenElems")
             removeClass(anchor, "hiddenElems")
             //visible
@@ -390,7 +395,7 @@ if(modePreTagAllDroppableElements){
             //hidden
         }
     }
-
+*/
 
 
 let callbackOnAction = data => {
