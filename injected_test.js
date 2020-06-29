@@ -64,7 +64,7 @@
 	    background-color: #f00;
 	    z-index: 2147483646;
 	}
-
+	
 	#anchorTop{
 	all: initial;	    
         position: absolute;top: -5000px;left: 50px;
@@ -103,7 +103,9 @@
 	    width:150px;
 	    background-color:#ccc;
 	}
-
+	.hiddenElems {
+		visibility: hidden;
+	}
         `
 
   document.head.appendChild(style);
