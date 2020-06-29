@@ -375,8 +375,23 @@ if(modePreTagAllDroppableElements){
             //hidden
         }
     }
-    alert('got a message '+JSON.parse(ev.data)['Action']+' '+JSON.parse(ev.data)['data'])
-    
+
+    msg = {Action:"UIVisibility", data: true}
+    if(msg.Action === "UIVisibility"){
+        if(msg.data){
+            alert('True')
+            removeClass(imgHolder, "hiddenElems")
+            removeClass(anchor, "hiddenElems")
+            //visible
+        } else {
+            alert('False')
+            imgHolder.className += " hiddenElems "
+            anchor.className += " hiddenElems "
+            //hidden
+        }
+    }
+
+
 
 let callbackOnAction = data => {
 // This is the default implementation. 
