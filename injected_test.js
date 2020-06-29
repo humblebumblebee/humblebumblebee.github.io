@@ -361,11 +361,11 @@ if(modePreTagAllDroppableElements){
 				new RegExp('(?:^|\\s)'+c+'(?!\\S)') ,'');
         }
         
-    let msg = {Action:"UIVisibility", data: false}
+    let msg = {Action:"UIVisibility", data: true}
     if(msg.Action === "UIVisibility"){
         if(msg.data){
             alert('True')
-	    for(elem of [imgHolder, anchor, imgLike, imgDislike, imgComment, imgShare]){
+	    for(elem of [imgHolder, anchor, imgLike, imgDislike, imgComment, imgShare, touchHolder]){
 	    	elem.style.visibility = "visible"
 	    }
             //removeClass(imgHolder, "hiddenElems")
@@ -373,7 +373,7 @@ if(modePreTagAllDroppableElements){
             //visible
         } else {
             alert('False')
-	    for(elem of [imgHolder, anchor, imgLike, imgDislike, imgComment, imgShare]){
+	    for(elem of [imgHolder, anchor, imgLike, imgDislike, imgComment, imgShare, touchHolder]){
 	    	elem.style.visibility = "hidden"
 	    }
             //imgHolder.className += " hiddenElems "
