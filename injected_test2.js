@@ -135,6 +135,25 @@
     anchorTop.id= "anchorTop"
     document.body.appendChild(anchorTop)
 
+    const UIComponent = (title, src) => {
+        const imgItem = document.createElement("img");
+        imgItem.src = src;
+        imgItem['draggable']= "true";
+        imgItem.addEventListener('dragstart', dragMoj)
+        imgItem.id= "drag"+title;
+        imgItem.className= "fixed"+title;
+        imgItem['width']= "64";
+        imgItem['height']= "64";
+        
+        const divItem =  document.createElement("div");
+        divItem['width']= "64";
+
+        const pItem = document.createElement("p");
+
+        document.body.appendChild(divItem)
+        divItem.appendChild(pItem)
+        divItem.appendChild(imgItem)
+    }
 
     const imgLike = document.createElement("img");
     const imgDislike = document.createElement("img");
@@ -146,8 +165,8 @@
     imgLike.addEventListener('dragstart', dragMoj)
     imgLike.id= "dragLike";
     imgLike.className= "fixedLike";
-    imgLike['width']= "64";
-    imgLike['height']= "64";
+    imgLike['width']= "64px";
+    imgLike['height']= "64px";
 
     imgDislike.src = "https://humblebumblebee.github.io/dislikeIcon.png";
     imgDislike['draggable']= "true";
