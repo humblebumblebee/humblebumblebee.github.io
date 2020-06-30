@@ -125,9 +125,10 @@
     document.addEventListener('scroll',ev=>{
         if(scrollFetchTimerId !== null){
             clearTimeout(scrollFetchTimerId);
+            console.log('Cancelled timer')
         }
         //window.scrollTo(window.pageXOffset , window.pageYOffset+vh)
-	console.log('top = ',propTop,' ,vh=', vh,' offset=', window.pageYOffset)
+	    //console.log('top = ',propTop,' ,vh=', vh,' offset=', window.pageYOffset)
         if(window.pageYOffset<vh){
 		propTop = Math.min(vh, window.pageYOffset)
         }else{
@@ -136,7 +137,7 @@
         anchor.style['top'] = ""+propTop+"px"
         //record last time of scroll.
         //half second after call another function and log to console
-        timerId = setTimeout(() => alert('Hello'), 1000);
+        timerId = setTimeout(() => console.log('Hello'), 2000);
     })
 
 
