@@ -96,7 +96,8 @@
 		display: inline-block;
 		position: relative;
 	}
-	.absolute {
+
+    .absolute {
 		position: absolute;
 	}
 	#draggable {
@@ -121,6 +122,11 @@
     document.body.appendChild(anchor)
 
     let scrollFetchTimerId = null
+    const msgToFetchData = () => {
+        //Step1: Find the element where the pointer is pointing to currently
+        //Step2: Extract the text component like another place (beware in DB we're saving the whole thing, not just text without spaces)
+        //Step3: Msg react native with this element; the rest will be automatically taken care of in the on message routine.
+    }
 
     document.addEventListener('scroll',ev=>{
         if(scrollFetchTimerId !== null){
