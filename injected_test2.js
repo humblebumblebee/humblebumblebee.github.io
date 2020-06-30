@@ -51,6 +51,8 @@
         div.imgHolder {
         	all: initial;
             position: fixed;
+            display: flex;
+            flex-direction: row;
             bottom: 0;
             width: 100%;
             background-color: grey;
