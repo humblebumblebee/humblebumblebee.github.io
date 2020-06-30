@@ -175,10 +175,6 @@
     const imgShare = comps.Share.img
 
     document.body.appendChild(imgHolder)
-    imgHolder.appendChild(imgLike)
-    imgHolder.appendChild(imgDislike)
-    imgHolder.appendChild(imgComment)
-    imgHolder.appendChild(imgShare)
     
     //document.body.appendChild(imgLike)
     //document.body.appendChild(imgComment)
