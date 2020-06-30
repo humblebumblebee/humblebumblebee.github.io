@@ -381,7 +381,7 @@ if(modePreTagAllDroppableElements){
     if(msg.Action === "UIVisibility"){
         if(msg.data){
             alert('True')
-	    for(elem of [imgHolder, anchor, imgLike, imgDislike, imgComment, imgShare, touchHolder]){
+	    for(elem of [imgHolder, anchor, comps.Like.img, comps.Dislike.img, comps.Comment.img, comps.Share.img, touchHolder]){
 	    	elem.style.visibility = "visible"
 	    }
             //removeClass(imgHolder, "hiddenElems")
@@ -389,7 +389,7 @@ if(modePreTagAllDroppableElements){
             //visible
         } else {
             alert('False')
-	    for(elem of [imgHolder, anchor, imgLike, imgDislike, imgComment, imgShare, touchHolder]){
+	    for(elem of [imgHolder, anchor, comps.Like.img, comps.Dislike.img, comps.Comment.img, comps.Share.img, touchHolder]){
 	    	elem.style.visibility = "hidden"
 	    }
             //imgHolder.className += " hiddenElems "
