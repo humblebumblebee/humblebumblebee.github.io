@@ -355,31 +355,35 @@ if(modePreTagAllDroppableElements){
         // Here put things that are needed for aborting touch and drop or drag and drop
     }
 
-        /* the drag function */
-        for(let comp of [comps.Like,comps.Dislike,comps.Comment,comps.Share]){
-            comp.img.addEventListener('touchmove', ev=>onTouchMoveParam(ev, comp.img), false);
-            comp.img.addEventListener('touchend', ev=>onTouchEndParam(ev, comp.img));
-        }
-        /*
-		imgLike.addEventListener('touchmove', ev=>onTouchMoveParam(ev, imgLike), false);
-		imgDislike.addEventListener('touchmove', ev=>onTouchMoveParam(ev, imgDislike), false);
-        imgComment.addEventListener('touchmove', ev=>onTouchMoveParam(ev, imgComment), false);
-		imgShare.addEventListener('touchmove', ev=>onTouchMoveParam(ev, imgShare), false);
+    /* the drag function */
+    for(let comp of [comps.Like,comps.Dislike,comps.Comment,comps.Share]){
+        comp.img.addEventListener('touchmove', ev=>onTouchMoveParam(ev, comp.img), false);
+        comp.img.addEventListener('touchend', ev=>onTouchEndParam(ev, comp.img));
+    }
+    /*
+    imgLike.addEventListener('touchmove', ev=>onTouchMoveParam(ev, imgLike), false);
+    imgDislike.addEventListener('touchmove', ev=>onTouchMoveParam(ev, imgDislike), false);
+    imgComment.addEventListener('touchmove', ev=>onTouchMoveParam(ev, imgComment), false);
+    imgShare.addEventListener('touchmove', ev=>onTouchMoveParam(ev, imgShare), false);
 */
-        /* the drop function */
-        /*
-		imgLike.addEventListener('touchend', ev=>onTouchEndParam(ev, imgLike));
-		imgDislike.addEventListener('touchend', ev=>onTouchEndParam(ev, imgDislike));
-		imgComment.addEventListener('touchend', ev=>onTouchEndParam(ev, imgComment));
-		imgShare.addEventListener('touchend', ev=>onTouchEndParam(ev, imgShare));
+    /* the drop function */
+    /*
+    imgLike.addEventListener('touchend', ev=>onTouchEndParam(ev, imgLike));
+    imgDislike.addEventListener('touchend', ev=>onTouchEndParam(ev, imgDislike));
+    imgComment.addEventListener('touchend', ev=>onTouchEndParam(ev, imgComment));
+    imgShare.addEventListener('touchend', ev=>onTouchEndParam(ev, imgShare));
 */
-		// just a little helper function
-		function removeClass(e,c) {
-			e.className = e.className.replace(
-				new RegExp('(?:^|\\s)'+c+'(?!\\S)') ,'');
-        }
-        
-    let msg = {Action:"UIVisibility", data: true}
+    // just a little helper function
+    function removeClass(e,c) {
+        e.className = e.className.replace(
+            new RegExp('(?:^|\\s)'+c+'(?!\\S)') ,'');
+    }
+    
+//document.addEventListener("message", ev => 
+{
+//    let msg = JSON.parse(ev.data)
+    //let msg = {Action:"UIVisibility", data: true}
+    let msg = {Action:"ShowStat", data: {Like: 10, Dislike: 12, Comment: 15}}
     if(msg.Action === "UIVisibility"){
         if(msg.data){
             alert('True')
@@ -398,7 +402,12 @@ if(modePreTagAllDroppableElements){
             //anchor.className += " hiddenElems "
             //hidden
         }
+    } else if(msg.Action === "ShowStat"){
+        comps.Like.p.innerHTML = msg.data['Like']
+        comps.Dislike.p.innerHTML = msg.data['Dislike']
+        comps.Comment.p.innerHTML = msg.data['Comment']
     }
+}
 /*
     msg = {Action:"UIVisibility", data: true}
     if(msg.Action === "UIVisibility"){
