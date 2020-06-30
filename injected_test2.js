@@ -341,9 +341,10 @@ if(modePreTagAllDroppableElements){
                 if(endTarget.className.includes(" validDropTargetMoj "))
                     return endTarget
             }else{
-                if(getConcatenatedTextNode(endTarget).length>40){
+                let textConcEndTarget = getConcatenatedTextNode(endTarget)
+                if(textConcEndTarget.length>40){
                     //TODO: THIS DOESN'T WORK
-                    console.log('In validDropTarget, concTextNode=', getConcatenatedTextNode(endTarget))
+                    console.log('In validDropTarget, concTextNode=', textConcEndTarget)
                     return endTarget
                 }
             }
