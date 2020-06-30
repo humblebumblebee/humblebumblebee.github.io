@@ -135,7 +135,7 @@
     anchorTop.id= "anchorTop"
     document.body.appendChild(anchorTop)
 
-    const UIComponent = (title, src) => {
+    const UIComponent = (title, src, parent) => {
         const imgItem = document.createElement("img");
         imgItem.src = src;
         imgItem['draggable']= "true";
@@ -151,23 +151,23 @@
         const pItem = document.createElement("p");
         pItem.innerHTML = title
 
-        document.body.appendChild(divItem)
+        parent.appendChild(divItem)
         divItem.appendChild(pItem)
         divItem.appendChild(imgItem)
         return {div:divItem, p: pItem, img: imgItem}
     }
 
-    UIComponent('bigloo', "https://humblebumblebee.github.io/likeIcon.png")
-
-    comps = {
-        Like: UIComponent('Like', "https://humblebumblebee.github.io/likeIcon.png"),
-        Dislike: UIComponent('Dislike', "https://humblebumblebee.github.io/dislikeIcon.png"),
-        Comment: UIComponent('Comment', "https://humblebumblebee.github.io/commentIcon.png"),
-        Share: UIComponent('Share', "https://humblebumblebee.github.io/shareIcon.png"),
-    } 
 
     const imgHolder = document.createElement("div");
     imgHolder.className= "imgHolder";
+
+    comps = {
+        Like: UIComponent('Like', "https://humblebumblebee.github.io/likeIcon.png", imgHolder),
+        Dislike: UIComponent('Dislike', "https://humblebumblebee.github.io/dislikeIcon.png", imgHolder),
+        Comment: UIComponent('Comment', "https://humblebumblebee.github.io/commentIcon.png", imgHolder),
+        Share: UIComponent('Share', "https://humblebumblebee.github.io/shareIcon.png", imgHolder),
+    } 
+
 
     const imgLike = comps.Like.img
     const imgDislike = comps.Dislike.img
