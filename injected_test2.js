@@ -343,7 +343,7 @@ if(modePreTagAllDroppableElements){
                     return endTarget
             }else{
                 let textConcEndTarget = getConcatenatedTextNode(endTarget)
-                if(textConcEndTarget.length>40){
+                if(textConcEndTarget.length>20){
                     //TODO: THIS DOESN'T WORK
                     console.log('In validDropTarget, concTextNode=', textConcEndTarget, '\nlength=',textConcEndTarget.length)
                     return endTarget
