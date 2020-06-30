@@ -159,45 +159,20 @@
 
     UIComponent('bigloo', "https://humblebumblebee.github.io/likeIcon.png")
 
-    const imgLike = document.createElement("img");
-    const imgDislike = document.createElement("img");
-    const imgComment = document.createElement("img");
-    const imgShare = document.createElement("img");
-
-    imgLike.src = "https://humblebumblebee.github.io/likeIcon.png";
-    imgLike['draggable']= "true";
-    imgLike.addEventListener('dragstart', dragMoj)
-    imgLike.id= "dragLike";
-    imgLike.className= "fixedLike";
-    imgLike['width']= "64";
-    imgLike['height']= "64";
-
-    imgDislike.src = "https://humblebumblebee.github.io/dislikeIcon.png";
-    imgDislike['draggable']= "true";
-    imgDislike.addEventListener('dragstart', dragMoj)
-    imgDislike.id= "dragDislike";
-    imgDislike.className= "fixedDislike";
-    imgDislike['width']= "64";
-    imgDislike['height']= "64";
-
-    imgComment.src = "https://humblebumblebee.github.io/commentIcon.png";
-    imgComment['draggable']= "true";
-    imgComment.addEventListener('dragstart', dragMoj)
-    imgComment.id= "dragComment";
-    imgComment.className= "fixedComment";
-    imgComment['width']= "64";
-    imgComment['height']= "64";
-
-    imgShare.src = "https://humblebumblebee.github.io/shareIcon.png";
-    imgShare['draggable']= "true";
-    imgShare.addEventListener('dragstart', dragMoj)
-    imgShare.id= "dragShare";
-    imgShare.className= "fixedShare";
-    imgShare['width']= "64";
-    imgShare['height']= "64";
+    comps = {
+        Like: UIComponent('Like', "https://humblebumblebee.github.io/likeIcon.png"),
+        Dislike: UIComponent('Dislike', "https://humblebumblebee.github.io/dislikeIcon.png"),
+        Comment: UIComponent('Comment', "https://humblebumblebee.github.io/commentIcon.png"),
+        Share: UIComponent('Share', "https://humblebumblebee.github.io/shareIcon.png"),
+    } 
 
     const imgHolder = document.createElement("div");
     imgHolder.className= "imgHolder";
+
+    const imgLike = comps.Like.img
+    const imgDislike = comps.Dislike.img
+    const imgComment = comps.Comment.img
+    const imgShare = comps.Share.img
 
     document.body.appendChild(imgHolder)
     imgHolder.appendChild(imgLike)
@@ -210,7 +185,8 @@
     //document.body.appendChild(imgShare)
 
 
-    console.log(imgLike)
+
+    console.log(comps.Like.img)
     console.log(document.getElementById('dragLike'))
     console.log(document.getElementById('dragComment'))
 
