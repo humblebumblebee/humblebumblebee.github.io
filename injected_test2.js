@@ -149,11 +149,15 @@
         divItem['width']= "64";
 
         const pItem = document.createElement("p");
+        pItem.innerHTML = title
 
         document.body.appendChild(divItem)
         divItem.appendChild(pItem)
         divItem.appendChild(imgItem)
+        return {div:divItem, p: pItem, img: imgItem}
     }
+
+    UIComponent(bigloo, "https://humblebumblebee.github.io/likeIcon.png")
 
     const imgLike = document.createElement("img");
     const imgDislike = document.createElement("img");
@@ -165,8 +169,8 @@
     imgLike.addEventListener('dragstart', dragMoj)
     imgLike.id= "dragLike";
     imgLike.className= "fixedLike";
-    imgLike['width']= "64px";
-    imgLike['height']= "64px";
+    imgLike['width']= "64";
+    imgLike['height']= "64";
 
     imgDislike.src = "https://humblebumblebee.github.io/dislikeIcon.png";
     imgDislike['draggable']= "true";
