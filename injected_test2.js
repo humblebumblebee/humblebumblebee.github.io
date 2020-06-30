@@ -354,17 +354,23 @@ if(modePreTagAllDroppableElements){
     }
 
         /* the drag function */
+        for(comp in comps){
+            comp.img.addEventListener('touchmove', ev=>onTouchMoveParam(ev, comp.img), false);
+            comp.img.addEventListener('touchend', ev=>onTouchEndParam(ev, comp.img));
+        }
+        /*
 		imgLike.addEventListener('touchmove', ev=>onTouchMoveParam(ev, imgLike), false);
 		imgDislike.addEventListener('touchmove', ev=>onTouchMoveParam(ev, imgDislike), false);
         imgComment.addEventListener('touchmove', ev=>onTouchMoveParam(ev, imgComment), false);
 		imgShare.addEventListener('touchmove', ev=>onTouchMoveParam(ev, imgShare), false);
-
-		/* the drop function */
+*/
+        /* the drop function */
+        /*
 		imgLike.addEventListener('touchend', ev=>onTouchEndParam(ev, imgLike));
 		imgDislike.addEventListener('touchend', ev=>onTouchEndParam(ev, imgDislike));
 		imgComment.addEventListener('touchend', ev=>onTouchEndParam(ev, imgComment));
 		imgShare.addEventListener('touchend', ev=>onTouchEndParam(ev, imgShare));
-
+*/
 		// just a little helper function
 		function removeClass(e,c) {
 			e.className = e.className.replace(
