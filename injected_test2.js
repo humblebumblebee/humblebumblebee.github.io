@@ -220,7 +220,7 @@
 
 
 
-let modePreTagAllDroppableElements = true
+let modePreTagAllDroppableElements = false
 if(modePreTagAllDroppableElements){
     const findElemsWithLargeText = root =>{
         const myfilter= node => {
