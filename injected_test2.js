@@ -137,7 +137,7 @@
         anchor.style['top'] = ""+propTop+"px"
         //record last time of scroll.
         //half second after call another function and log to console
-        timerId = setTimeout(() => console.log('Hello'), 2000);
+        scrollFetchTimerId = setTimeout(() => console.log('Hello'), 2000);
     })
 
 
