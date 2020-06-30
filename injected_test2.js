@@ -331,7 +331,7 @@ if(modePreTagAllDroppableElements){
         }
         console.log(result)
         
-        return result.replace(/[\t\n ,.]/g, '-')
+        return result.replace(/[\t\n ,.]/g, '')
     }
         
     const validDropTarget = (endTargets) => {
