@@ -354,7 +354,7 @@ if(modePreTagAllDroppableElements){
     }
 
         /* the drag function */
-        for(let comp in comps){
+        for(let comp of [comps.Like,comps.Dislike,comps.Comment,comps.Share]){
             comp.img.addEventListener('touchmove', ev=>onTouchMoveParam(ev, comp.img), false);
             comp.img.addEventListener('touchend', ev=>onTouchEndParam(ev, comp.img));
         }
