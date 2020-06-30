@@ -157,7 +157,7 @@
         return {div:divItem, p: pItem, img: imgItem}
     }
 
-    UIComponent(bigloo, "https://humblebumblebee.github.io/likeIcon.png")
+    UIComponent('bigloo', "https://humblebumblebee.github.io/likeIcon.png")
 
     const imgLike = document.createElement("img");
     const imgDislike = document.createElement("img");
