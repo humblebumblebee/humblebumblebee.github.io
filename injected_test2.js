@@ -321,16 +321,29 @@ if(modePreTagAllDroppableElements){
 			}
 		}
 
+    const getConcatenatedTextNode = elem => { //Returns a concatenation of text nodes of this element
+        let nodes = elem.childNodes;
+        let result = '';
+        for(var i = 0; i < nodes.length; i++) {
+            if(nodes[i].nodeType == 3) {       // If it is a text node,
+                result += nodes[i].nodeValue;  //    add its text to the result
+            }
+        }
+        console.log(result)
+        return result
+    }
+        
     const validDropTarget = (endTargets) => {
         //returns the first valid drop target from the list of endTargets; else returns none
+        
         for(let endTarget of endTargets){
             if(modePreTagAllDroppableElements){
                 if(endTarget.className.includes(" validDropTargetMoj "))
                     return endTarget
             }else{
-                if(endTarget.innerHTML.length>20){
+                if(getConcatenatedTextNode(endTarget).length>20){
                     //TODO: THIS DOESN'T WORK
-                    console.log('In validDropTarget, innerHtml=', endTarget.innerHTML)
+                    console.log('In validDropTarget, concTextNode=', getConcatenatedTextNode(endTarget))
                     return endTarget
                 }
             }
