@@ -125,11 +125,26 @@
     let scrollFetchTimerId = null
     const msgToFetchData = () => {
         console.log('anchor.offsetTop , vw = ', anchor.offsetTop, vw)
-        console.log('ver1 elements at 50% width:\n',document.elementsFromPoint(vw, anchor.offsetTop))
-        strAnchor = (anchor.style.top+"").replace('px','')
-        console.log('anchor.style.top withoutpx , vw = ', strAnchor, vw)
-        console.log('ver2 elements at 50% width:\n',document.elementsFromPoint(vw, parseInt(anchor.style.top)))
+        let endTargets = null
+        let endTarget = null
+        let dx = 0.4*vw
+        for(let deltay of [0,10]){
+            for(let deltax of [0,-dx,dx]){
+                endTargets = nulldocument.elementsFromPoint(vw+deltax, anchor.offsetTop+deltay)
+                endTarget = nullvalidDropTarget(endTarget)
+                if(endTarget !== null)
+                    break
+            }
+        }
 
+        if(endTarget !== null){// we have some element to fetch data for
+            callbackOnAction({Command: "fetch_stat", Target: endTarget})
+        }else{
+            //clear data
+            comps.Like.p.innerHTML = ''
+            comps.Dislike.p.innerHTML = ''
+            comps.Comment.p.innerHTML = ''
+        }
         //let endPointViewPort= {x: event.changedTouches[0].clientX, y: event.changedTouches[0].clientY}
         //let endPoint= {x: event.changedTouches[0].pageX, y: event.changedTouches[0].pageY}
         //console.log("end points are ", endPoint, endPointViewPort)
@@ -339,7 +354,7 @@ if(modePreTagAllDroppableElements){
 			if (endTarget != null) {
                 console.log('dropped ', endTarget, ' ', draggable)
                 console.log('vs. dropped ', event.target, ' ', draggable)
-		callbackOnAction({Action: draggable, Target: endTarget})
+		callbackOnAction({Command:'drag_drop', Action: draggable, Target: endTarget})
                 //wrapper.removeChild(draggable);
                 //endTarget.appendChild(draggable);
 			}
