@@ -130,8 +130,8 @@
         let dx = 0.4*vw
         for(let deltay of [0,10]){
             for(let deltax of [0,-dx,dx]){
-                endTargets = nulldocument.elementsFromPoint(vw+deltax, anchor.offsetTop+deltay)
-                endTarget = nullvalidDropTarget(endTarget)
+                endTargets = document.elementsFromPoint(vw+deltax, anchor.offsetTop+deltay)
+                endTarget = validDropTarget(endTarget)
                 if(endTarget !== null)
                     break
             }
