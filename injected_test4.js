@@ -131,7 +131,7 @@
         for(let deltay of [0,10]){
             for(let deltax of [0,-dx,dx]){
                 endTargets = document.elementsFromPoint(vw+deltax, anchor.offsetTop+deltay)
-                endTarget = validDropTarget(endTarget)
+                endTarget = validDropTarget(endTargets)
                 if(endTarget !== null)
                     break
             }
