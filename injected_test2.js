@@ -123,6 +123,13 @@
 
     let scrollFetchTimerId = null
     const msgToFetchData = () => {
+        console.log('anchor.offsetTop = ',anchor.offsetTop)
+        //let endPointViewPort= {x: event.changedTouches[0].clientX, y: event.changedTouches[0].clientY}
+        //let endPoint= {x: event.changedTouches[0].pageX, y: event.changedTouches[0].pageY}
+        //console.log("end points are ", endPoint, endPointViewPort)
+        //let endTargets = document.elementsFromPoint(endPointViewPort.x, endPointViewPort.y);
+
+        //Step0: Calculate the position
         //Step1: Find the element where the pointer is pointing to currently
         //Step2: Extract the text component like another place (beware in DB we're saving the whole thing, not just text without spaces)
         //Step3: Msg react native with this element; the rest will be automatically taken care of in the on message routine.
@@ -136,14 +143,14 @@
         //window.scrollTo(window.pageXOffset , window.pageYOffset+vh)
 	    //console.log('top = ',propTop,' ,vh=', vh,' offset=', window.pageYOffset)
         if(window.pageYOffset<vh){
-		propTop = Math.min(vh, window.pageYOffset)
+		    propTop = Math.min(vh, window.pageYOffset)
         }else{
             propTop = vh
         }	    
         anchor.style['top'] = ""+propTop+"px"
         //record last time of scroll.
         //half second after call another function and log to console
-        scrollFetchTimerId = setTimeout(() => console.log('Hello'), 2000);
+        scrollFetchTimerId = setTimeout(msgToFetchData, 2000);
     })
 
 
