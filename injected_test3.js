@@ -125,10 +125,10 @@
     let scrollFetchTimerId = null
     const msgToFetchData = () => {
         console.log('anchor.offsetTop , vw = ', anchor.offsetTop, vw)
-        console.log('ver1 elements at 50% width:\n',document.elementsFromPoint(anchor.offsetTop, vw))
+        console.log('ver1 elements at 50% width:\n',document.elementsFromPoint(vw, anchor.offsetTop))
         strAnchor = (anchor.style.top+"").replace('px','')
         console.log('anchor.style.top withoutpx , vw = ', strAnchor, vw)
-        console.log('ver2 elements at 50% width:\n',document.elementsFromPoint(parseInt(anchor.style.top), vw))
+        console.log('ver2 elements at 50% width:\n',document.elementsFromPoint(vw, parseInt(anchor.style.top)))
 
         //let endPointViewPort= {x: event.changedTouches[0].clientX, y: event.changedTouches[0].clientY}
         //let endPoint= {x: event.changedTouches[0].pageX, y: event.changedTouches[0].pageY}
