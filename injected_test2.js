@@ -1,4 +1,5 @@
     const vh = 1/2 * Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
+    const vw = 1/2 * Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
     //document.body.style.paddingTop = ""+vh+"px"//vh
     //document.body.style.paddingBottom = ""+vh+"px"//vh
     //document.body.style.marginTop = ""+vh+"px"//vh
@@ -123,7 +124,9 @@
 
     let scrollFetchTimerId = null
     const msgToFetchData = () => {
-        console.log('anchor.offsetTop = ',anchor.offsetTop)
+        console.log('anchor.offsetTop = ', anchor.offsetTop)
+        console.log('elements at 50% width:\n',document.elementsFromPoint(anchor.offsetTop, vw))
+
         //let endPointViewPort= {x: event.changedTouches[0].clientX, y: event.changedTouches[0].clientY}
         //let endPoint= {x: event.changedTouches[0].pageX, y: event.changedTouches[0].pageY}
         //console.log("end points are ", endPoint, endPointViewPort)
