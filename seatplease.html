@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<center>
+<h2>Get your table number</h2>
+<button onclick="myFunction()">Click here</button>
+</center>
+<script>
+var numOfTable = 3
+var now = new Date();
+var start = new Date(now.getFullYear(), 0, 0);
+var diff = now - start;
+var oneDay = 1000 * 60 * 60 * 24;
+var day = Math.floor(diff / oneDay);
+var seed = ""+day
+var tables = {0:'A', 1:'B', 2:'C', 3:'D', 4:'E'}
+
+function xmur3(str) {
+    for(var i = 0, h = 1779033703 ^ str.length; i < str.length; i++)
+        h = Math.imul(h ^ str.charCodeAt(i), 3432918353),
+        h = h << 13 | h >>> 19;
+    return function() {
+        h = Math.imul(h ^ h >>> 16, 2246822507);
+        h = Math.imul(h ^ h >>> 13, 3266489909);
+        return (h ^= h >>> 16) >>> 0;
+    }
+    }
+
+function myFunction() {
+var name = window.prompt("Enter your last name: ");
+var rnd = xmur3(seed+name);
+alert("Your seat is " + tables[rnd() % numOfTable]);}
+
+</script>
+
+</body>
+</html>
