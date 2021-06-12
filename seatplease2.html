@@ -29,7 +29,7 @@ function xmur3(str) {
 
 function myFunction() {
 var name = window.prompt("Enter your last name: ");
-var rnd = xmur3(seed+name);
+var rnd = xmur3(seed+name.toUpperCase());
 alert("Your seat is " + tables[rnd() % numOfTable]);}
 
 </script>
